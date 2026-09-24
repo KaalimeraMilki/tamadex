@@ -1,4 +1,4 @@
-# TamaDex V3.2
+# TamaDex V3.2.1
 
 V3.2 ajoute le **suivi d'un élevage dès l'œuf**, sans obliger à choisir l'adulte à l'avance.
 
@@ -22,3 +22,8 @@ V3.2 ajoute le **suivi d'un élevage dès l'œuf**, sans obliger à choisir l'ad
 ## Sécurité de l'assistant
 
 TamaDex n'élimine automatiquement un adulte que si sa règle structurée est marquée `rules_verified=true`. Les autres personnages restent « à confirmer » afin d'éviter les faux diagnostics d'évolution.
+
+
+## Correctif V3.2.1
+
+Corrige le chargement des élevages après l'ajout de `current_tamagotchi_id`. La V3.2 ajoutait une deuxième relation entre `active_raisings` et `tamagotchis`, ce qui rendait la relation Supabase `target:tamagotchis(*)` ambiguë. La relation vers `target_tamagotchi_id` est maintenant explicitement sélectionnée. Aucune nouvelle migration SQL n'est nécessaire.

@@ -61,7 +61,7 @@ async function loadV3(){
   const [admin,translations,raisings,actions,stages,v32]=await Promise.all([
     supabase.from('app_admins').select('user_id').eq('user_id',state.user.id).maybeSingle(),
     supabase.from('app_translations').select('*').order('category').order('key'),
-    supabase.from('active_raisings').select('*, context, target:tamagotchis(*)').eq('user_id',state.user.id).order('started_at',{ascending:false}),
+    supabase.from('active_raisings').select('*, context, target:tamagotchis!active_raisings_target_tamagotchi_id_fkey(*)').eq('user_id',state.user.id).order('started_at',{ascending:false}),
     supabase.from('raising_actions').select('*').eq('user_id',state.user.id).order('created_at',{ascending:true}),
     supabase.from('raising_stage_events').select('*').eq('user_id',state.user.id).order('created_at',{ascending:true}),
     supabase.from('active_raisings').select('id,mode,edition,current_stage,current_tamagotchi_id').limit(1)
