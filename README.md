@@ -1,15 +1,12 @@
-# TamaDex
+# TamaDex V2
 
-PWA de suivi de collection Tamagotchi Uni & Paradise, avec comptes Supabase, collection personnelle, amies et défis.
+PWA de suivi Tamagotchi Uni & Paradise avec Supabase.
 
-## Déploiement GitHub Pages
+## V2 visuelle
+- Images chargées à la demande via l'API `pageimages` de Tamagotchi Wiki/Fandom (aucune illustration copiée dans ce dépôt).
+- Cache local des URL d'images pour éviter de refaire les requêtes.
+- Chargement paresseux uniquement lorsque les cartes approchent de l'écran.
+- Filtres par gamme et par zone/Tamaverse Ticket.
+- Fiches personnage enrichies avec conditions d'obtention et lien vers la source.
 
-1. Mettre les fichiers de ce dossier à la racine du dépôt.
-2. GitHub > Settings > Pages.
-3. Source: Deploy from a branch.
-4. Branch: main / root.
-5. Ouvrir l'URL GitHub Pages fournie.
-
-## Supabase
-
-Le projet utilise `config.js` avec une URL Supabase et une **publishable key** (clé publique prévue pour les applications web). Ne jamais y placer de secret key/service_role.
+Les illustrations et personnages Tamagotchi restent la propriété de leurs ayants droit. TamaDex n'héberge pas ces illustrations.
