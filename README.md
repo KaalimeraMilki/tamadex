@@ -1,29 +1,19 @@
-# TamaDex V3.2.1
-
-V3.2 ajoute le **suivi d'un élevage dès l'œuf**, sans obliger à choisir l'adulte à l'avance.
+# TamaDex V3.3
 
 ## Nouveautés
-
-- Deux démarrages : **🥚 mode découverte** ou **🎯 objectif précis**.
-- Un élevage peut ne pas avoir de `target_tamagotchi_id`.
-- Contexte de départ : appareil, génération, origine de l'œuf et sexe si connus.
-- Bouton **✨ Mon Tama a évolué** avec stade et nom du nouveau Tama.
-- Chronologie mêlant évolutions et actions enregistrées.
-- Liste des routes **vérifiées encore compatibles** et séparation explicite des guides non vérifiés.
-- Possibilité de choisir un adulte objectif plus tard et de basculer vers le guide détaillé V3.1.
-- Les élevages V3.1 existants restent en mode objectif.
+- Collection = tous les Tama rencontrés : bébé, enfant, ado et adulte.
+- Filtre par stade dans le TamaDex.
+- Reconnaissance visuelle à chaque évolution : grandes cartes illustrées, nom/stade automatiques.
+- Depuis un œuf, le bouton devient **🐣 Mon œuf a éclos** et les actions de soin sont masquées avant l’éclosion.
+- Chaque personnage choisi pendant un élevage est automatiquement ajouté à la collection.
+- Historique avec nombre d'obtentions (`obtained_count`) et dernière obtention.
+- Arbre d'évolution via `evolution_edges`.
+- Ajout des stades de base Uni (bébés, enfants, ados) et Paradise (bébé, kids, youngs).
 
 ## Installation
+1. Exécuter `tamadex-v3.3-migration.sql` dans Supabase après les migrations précédentes.
+2. Remplacer les fichiers du site par ceux de ce dossier.
+3. Attendre GitHub Pages puis faire un rechargement forcé.
+4. Vérifier `TAMADEX · V3.3` en haut.
 
-1. Exécuter `tamadex-v3.2-migration.sql` dans Supabase après V3.1.
-2. Remplacer les fichiers du frontend dans GitHub Pages.
-3. Attendre le déploiement puis recharger complètement la PWA.
-
-## Sécurité de l'assistant
-
-TamaDex n'élimine automatiquement un adulte que si sa règle structurée est marquée `rules_verified=true`. Les autres personnages restent « à confirmer » afin d'éviter les faux diagnostics d'évolution.
-
-
-## Correctif V3.2.1
-
-Corrige le chargement des élevages après l'ajout de `current_tamagotchi_id`. La V3.2 ajoutait une deuxième relation entre `active_raisings` et `tamagotchis`, ce qui rendait la relation Supabase `target:tamagotchis(*)` ambiguë. La relation vers `target_tamagotchi_id` est maintenant explicitement sélectionnée. Aucune nouvelle migration SQL n'est nécessaire.
+Les branches d'évolution sont enrichies progressivement : TamaDex préfère afficher un choix large plutôt que d'éliminer un personnage sur une règle non vérifiée.
