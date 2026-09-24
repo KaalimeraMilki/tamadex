@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#8b5cf6" />
-  <meta name="description" content="TamaDex — collection Tamagotchi Uni & Paradise, amis et défis." />
+  <meta name="description" content="TamaDex — collection Tamagotchi Uni & Paradise et assistant d'évolution." />
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="icon" href="./icons/icon-192.png" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
@@ -16,154 +16,62 @@
 
   <main id="auth-view" class="auth-shell">
     <section class="auth-card">
-      <div class="brand-mark">🥚</div>
-      <p class="eyebrow">UNI · PARADISE</p>
-      <h1>TamaDex</h1>
-      <p class="muted">Ta collection Tamagotchi, tes objectifs et tes défis entre amies.</p>
-
-      <div class="segmented" role="tablist">
-        <button id="show-login" class="segment active" type="button">Connexion</button>
-        <button id="show-signup" class="segment" type="button">Créer un compte</button>
-      </div>
-
-      <form id="login-form" class="form-stack">
-        <label>Email<input id="login-email" type="email" autocomplete="email" required /></label>
-        <label>Mot de passe<input id="login-password" type="password" autocomplete="current-password" minlength="6" required /></label>
-        <button class="primary" type="submit">Se connecter</button>
-      </form>
-
-      <form id="signup-form" class="form-stack hidden">
-        <label>Prénom ou pseudo<input id="signup-name" type="text" maxlength="40" required /></label>
-        <label>Email<input id="signup-email" type="email" autocomplete="email" required /></label>
-        <label>Mot de passe<input id="signup-password" type="password" autocomplete="new-password" minlength="6" required /></label>
-        <button class="primary" type="submit">Créer mon TamaDex</button>
-        <p class="tiny muted">Selon les réglages Supabase, un email de confirmation peut être demandé.</p>
-      </form>
+      <div class="brand-mark">🥚</div><p class="eyebrow">UNI · PARADISE</p><h1>TamaDex</h1>
+      <p class="muted">Ta collection, tes élevages en cours et tes défis entre amies.</p>
+      <div class="segmented"><button id="show-login" class="segment active" type="button">Connexion</button><button id="show-signup" class="segment" type="button">Créer un compte</button></div>
+      <form id="login-form" class="form-stack"><label>Email<input id="login-email" type="email" autocomplete="email" required /></label><label>Mot de passe<input id="login-password" type="password" autocomplete="current-password" minlength="6" required /></label><button class="primary" type="submit">Se connecter</button></form>
+      <form id="signup-form" class="form-stack hidden"><label>Prénom ou pseudo<input id="signup-name" type="text" maxlength="40" required /></label><label>Email<input id="signup-email" type="email" autocomplete="email" required /></label><label>Mot de passe<input id="signup-password" type="password" autocomplete="new-password" minlength="6" required /></label><button class="primary" type="submit">Créer mon TamaDex</button></form>
     </section>
   </main>
 
   <div id="app-view" class="app hidden">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">TAMADEX</p>
-        <h1 id="page-title">Accueil</h1>
-      </div>
-      <button id="avatar-button" class="avatar" type="button" aria-label="Profil">🥚</button>
-    </header>
-
+    <header class="topbar"><div><p class="eyebrow">TAMADEX · V3</p><h1 id="page-title">Accueil</h1></div><button id="avatar-button" class="avatar" type="button">🥚</button></header>
     <main class="content">
       <section id="page-home" class="page active">
-        <div class="hero-card">
-          <div>
-            <p class="eyebrow">BON RETOUR ✨</p>
-            <h2 id="welcome-name">Collectionneuse</h2>
-            <p class="muted-on-dark">Quel Tama vas-tu ajouter aujourd'hui ?</p>
-          </div>
-          <div class="hero-egg">🥚</div>
-        </div>
-
-        <div class="stats-grid">
-          <article class="stat-card uni"><span>UNI</span><strong id="uni-count">0 / 0</strong><small id="uni-percent">0 %</small></article>
-          <article class="stat-card paradise"><span>PARADISE</span><strong id="paradise-count">0 / 0</strong><small id="paradise-percent">0 %</small></article>
-        </div>
-
-        <div class="section-heading"><h2>🎯 Mes objectifs</h2><button data-nav="dex" class="text-button">Voir le TamaDex</button></div>
-        <div id="targets-list" class="card-list empty-state">Aucun objectif pour le moment.</div>
-
-        <div class="section-heading"><h2>🏆 Défis actifs</h2><button data-nav="challenges" class="text-button">Tous les défis</button></div>
-        <div id="home-challenges" class="card-list empty-state">Pas encore de défi actif.</div>
+        <div class="hero-card"><div><p class="eyebrow">BON RETOUR ✨</p><h2 id="welcome-name">Collectionneuse</h2><p class="muted-on-dark">Quel Tama élèves-tu aujourd'hui ?</p></div><div class="hero-egg">🥚</div></div>
+        <div class="stats-grid"><article class="stat-card uni"><span>UNI</span><strong id="uni-count">0 / 0</strong><small id="uni-percent">0 %</small></article><article class="stat-card paradise"><span>PARADISE</span><strong id="paradise-count">0 / 0</strong><small id="paradise-percent">0 %</small></article></div>
+        <div class="section-heading"><h2>🌱 Élevages en cours</h2><button data-nav="raising" class="text-button">Assistant</button></div><div id="home-raisings" class="card-list empty-state">Aucun élevage en cours.</div>
+        <div class="section-heading"><h2>🎯 Mes objectifs</h2><button data-nav="dex" class="text-button">Voir le TamaDex</button></div><div id="targets-list" class="card-list empty-state">Aucun objectif pour le moment.</div>
+        <div class="section-heading"><h2>🏆 Défis actifs</h2><button data-nav="challenges" class="text-button">Tous les défis</button></div><div id="home-challenges" class="card-list empty-state">Pas encore de défi actif.</div>
       </section>
 
       <section id="page-dex" class="page">
-        <div class="toolbar">
-          <input id="dex-search" class="search" type="search" placeholder="Rechercher un Tamagotchi…" />
-          <div class="chips">
-            <button class="chip active" data-filter="all">Tous</button>
-            <button class="chip" data-filter="uni">Uni</button>
-            <button class="chip" data-filter="paradise">Paradise</button>
-            <button class="chip" data-filter="owned">Obtenus</button>
-            <button class="chip" data-filter="target">Objectifs</button>
-          </div>
-          <div class="dex-subtoolbar">
-            <select id="dex-group" class="group-select" aria-label="Filtrer par zone ou ticket"><option value="all">Toutes les zones / tickets</option></select>
-            <span id="dex-result-count" class="result-count"></span>
-          </div>
-        </div>
+        <div class="toolbar"><input id="dex-search" class="search" type="search" placeholder="Rechercher un Tamagotchi…" /><div class="chips"><button class="chip active" data-filter="all">Tous</button><button class="chip" data-filter="uni">Uni</button><button class="chip" data-filter="paradise">Paradise</button><button class="chip" data-filter="owned">Obtenus</button><button class="chip" data-filter="target">Objectifs</button></div><div class="dex-subtoolbar"><select id="dex-group" class="group-select"><option value="all">Toutes les zones / tickets</option></select><span id="dex-result-count" class="result-count"></span></div></div>
+        <div id="image-progress" class="image-progress hidden"><span>🖼️ Préparation des illustrations…</span><progress id="image-progress-bar" max="100" value="0"></progress></div>
         <div id="dex-grid" class="dex-grid"></div>
-        <p class="image-credit">Illustrations chargées à la demande depuis Tamagotchi Wiki quand elles sont disponibles. Elles ne sont pas copiées dans TamaDex.</p>
+        <p class="image-credit">Les illustrations externes sont mises en cache dans le navigateur. Les cadrages peuvent être ajustés depuis l’administration.</p>
+      </section>
+
+      <section id="page-raising" class="page">
+        <div class="assistant-intro"><div><p class="eyebrow">ASSISTANT D'ÉVOLUTION</p><h2>Mes élevages</h2><p class="muted">Choisis ton objectif, puis note les actions importantes au fil de l'élevage.</p></div><button id="new-raising-btn" class="primary compact">＋ Nouvel élevage</button></div>
+        <div id="raisings-list" class="raising-list"></div>
       </section>
 
       <section id="page-friends" class="page">
-        <article class="panel">
-          <h2>Ajouter une amie</h2>
-          <p class="muted">Recherche par pseudo exact ou nom affiché.</p>
-          <div class="inline-form"><input id="friend-search" type="search" placeholder="Pseudo ou nom" /><button id="friend-search-btn" class="primary compact">Chercher</button></div>
-          <div id="friend-results" class="card-list"></div>
-        </article>
-        <div class="section-heading"><h2>Demandes</h2></div>
-        <div id="friend-requests" class="card-list empty-state">Aucune demande.</div>
-        <div class="section-heading"><h2>Mes amies</h2></div>
-        <div id="friends-list" class="card-list empty-state">Ajoute une amie pour commencer.</div>
+        <article class="panel"><h2>Ajouter une amie</h2><p class="muted">Recherche par pseudo exact ou nom affiché.</p><div class="inline-form"><input id="friend-search" type="search" placeholder="Pseudo ou nom" /><button id="friend-search-btn" class="primary compact">Chercher</button></div><div id="friend-results" class="card-list"></div></article>
+        <div class="section-heading"><h2>Demandes</h2></div><div id="friend-requests" class="card-list empty-state">Aucune demande.</div><div class="section-heading"><h2>Mes amies</h2></div><div id="friends-list" class="card-list empty-state">Ajoute une amie pour commencer.</div>
       </section>
 
-      <section id="page-challenges" class="page">
-        <button id="new-challenge-btn" class="primary full">＋ Nouveau défi</button>
-        <div class="section-heading"><h2>Mes défis</h2></div>
-        <div id="challenges-list" class="card-list empty-state">Aucun défi pour le moment.</div>
-      </section>
+      <section id="page-challenges" class="page"><button id="new-challenge-btn" class="primary full">＋ Nouveau défi</button><div class="section-heading"><h2>Mes défis</h2></div><div id="challenges-list" class="card-list empty-state">Aucun défi pour le moment.</div></section>
 
       <section id="page-profile" class="page">
-        <article class="panel profile-panel">
-          <div class="big-avatar">🥚</div>
-          <h2 id="profile-display">Mon profil</h2>
-          <p id="profile-email" class="muted"></p>
-          <form id="profile-form" class="form-stack">
-            <label>Pseudo unique<input id="profile-username" type="text" maxlength="30" pattern="[A-Za-z0-9_.-]+" placeholder="ex. chloe_tama" /></label>
-            <label>Nom affiché<input id="profile-name" type="text" maxlength="40" /></label>
-            <label>Bio<textarea id="profile-bio" maxlength="160" rows="3" placeholder="Quelques mots sur ta collection…"></textarea></label>
-            <label class="toggle-row"><input id="profile-public" type="checkbox" /> <span>Autoriser plus tard le partage public de ma collection</span></label>
-            <button class="primary" type="submit">Enregistrer</button>
-          </form>
-        </article>
-        <button id="logout-btn" class="danger-outline full">Se déconnecter</button>
+        <article class="panel profile-panel"><div class="big-avatar">🥚</div><h2 id="profile-display">Mon profil</h2><p id="profile-email" class="muted"></p><form id="profile-form" class="form-stack"><label>Pseudo unique<input id="profile-username" type="text" maxlength="30" pattern="[A-Za-z0-9_.-]+" /></label><label>Nom affiché<input id="profile-name" type="text" maxlength="40" /></label><label>Bio<textarea id="profile-bio" maxlength="160" rows="3"></textarea></label><label class="toggle-row"><input id="profile-public" type="checkbox" /> <span>Autoriser plus tard le partage public de ma collection</span></label><button class="primary" type="submit">Enregistrer</button></form></article>
+        <button id="admin-entry" data-nav="admin" class="admin-entry hidden">⚙️ Administration TamaDex</button><button id="logout-btn" class="danger-outline full">Se déconnecter</button>
+      </section>
+
+      <section id="page-admin" class="page">
+        <div class="admin-head"><div><p class="eyebrow">BACK-OFFICE</p><h2>Administration</h2><p class="muted">Corrections françaises, illustrations et cadrage.</p></div><button id="resolve-images-btn" class="secondary">🖼️ Résoudre les images</button></div>
+        <article class="panel admin-panel"><h2>Personnages</h2><div class="admin-picker"><input id="admin-tama-search" class="search" type="search" placeholder="Chercher un personnage…" /><select id="admin-tama-select"></select></div><form id="admin-tama-form" class="form-stack"><div id="admin-image-preview" class="admin-image-preview"></div><label>Nom français<input id="admin-name-fr" type="text" /></label><label>Description française<textarea id="admin-description-fr" rows="3"></textarea></label><label>Conditions françaises<textarea id="admin-conditions-fr" rows="5"></textarea></label><label>URL de l'illustration<input id="admin-image-url" type="url" /></label><label>Zoom <output id="admin-scale-output">84 %</output><input id="admin-image-scale" type="range" min="35" max="140" value="84" /></label><div class="range-grid"><label>Position horizontale<input id="admin-image-x" type="range" min="0" max="100" value="50" /></label><label>Position verticale<input id="admin-image-y" type="range" min="0" max="100" value="50" /></label></div><button class="primary" type="submit">Enregistrer le personnage</button></form></article>
+        <article class="panel admin-panel"><div class="section-heading"><h2>Traductions</h2><span id="translation-count" class="result-count"></span></div><input id="translation-search" class="search" type="search" placeholder="Repas, action ou terme anglais…" /><div id="translations-list" class="translation-list"></div></article>
       </section>
     </main>
 
-    <nav class="bottom-nav" aria-label="Navigation principale">
-      <button class="nav-item active" data-nav="home"><span>🏠</span><small>Accueil</small></button>
-      <button class="nav-item" data-nav="dex"><span>🥚</span><small>TamaDex</small></button>
-      <button class="nav-item" data-nav="friends"><span>👭</span><small>Amies</small></button>
-      <button class="nav-item" data-nav="challenges"><span>🏆</span><small>Défis</small></button>
-      <button class="nav-item" data-nav="profile"><span>👤</span><small>Profil</small></button>
-    </nav>
+    <nav class="bottom-nav" aria-label="Navigation principale"><button class="nav-item active" data-nav="home"><span>🏠</span><small>Accueil</small></button><button class="nav-item" data-nav="dex"><span>🥚</span><small>TamaDex</small></button><button class="nav-item" data-nav="raising"><span>🌱</span><small>Élevage</small></button><button class="nav-item" data-nav="friends"><span>👭</span><small>Amies</small></button><button class="nav-item" data-nav="challenges"><span>🏆</span><small>Défis</small></button><button class="nav-item" data-nav="profile"><span>👤</span><small>Profil</small></button></nav>
   </div>
 
-  <dialog id="tama-dialog" class="dialog">
-    <button class="dialog-close" data-close-dialog="tama-dialog">×</button>
-    <div id="tama-dialog-content"></div>
-  </dialog>
-
-  <dialog id="challenge-dialog" class="dialog">
-    <button class="dialog-close" data-close-dialog="challenge-dialog">×</button>
-    <h2>Nouveau défi</h2>
-    <form id="challenge-form" class="form-stack">
-      <label>Titre<input id="challenge-title" type="text" maxlength="80" required placeholder="Course à Mametchi" /></label>
-      <label>Type
-        <select id="challenge-type">
-          <option value="specific_tama">Obtenir un Tama précis</option>
-          <option value="collect_count">Obtenir X nouveaux Tama</option>
-          <option value="cooperative_count">Objectif collectif</option>
-          <option value="custom">Défi personnalisé</option>
-        </select>
-      </label>
-      <label id="challenge-tama-wrap">Tamagotchi cible<select id="challenge-tama"></select></label>
-      <label id="challenge-count-wrap" class="hidden">Objectif<input id="challenge-count" type="number" min="1" max="999" value="5" /></label>
-      <label>Description<textarea id="challenge-description" rows="3" maxlength="240"></textarea></label>
-      <label>Date de fin<input id="challenge-end" type="date" /></label>
-      <button class="primary" type="submit">Créer le défi</button>
-    </form>
-  </dialog>
-
+  <dialog id="tama-dialog" class="dialog"><button class="dialog-close" data-close-dialog="tama-dialog">×</button><div id="tama-dialog-content"></div></dialog>
+  <dialog id="raising-dialog" class="dialog"><button class="dialog-close" data-close-dialog="raising-dialog">×</button><h2>🌱 Nouvel élevage</h2><form id="raising-form" class="form-stack"><label>Objectif<select id="raising-target" required></select></label><label>Tama actuel / stade actuel<input id="raising-current" type="text" maxlength="60" placeholder="ex. Kuriritchi" /></label><label>Appareil<input id="raising-device" type="text" maxlength="60" placeholder="ex. Uni violet / Paradise rose" /></label><button class="primary" type="submit">Démarrer l'élevage</button></form></dialog>
+  <dialog id="challenge-dialog" class="dialog"><button class="dialog-close" data-close-dialog="challenge-dialog">×</button><h2>Nouveau défi</h2><form id="challenge-form" class="form-stack"><label>Titre<input id="challenge-title" type="text" maxlength="80" required /></label><label>Type<select id="challenge-type"><option value="specific_tama">Obtenir un Tama précis</option><option value="collect_count">Obtenir X nouveaux Tama</option><option value="cooperative_count">Objectif collectif</option><option value="custom">Défi personnalisé</option></select></label><label id="challenge-tama-wrap">Tamagotchi cible<select id="challenge-tama"></select></label><label id="challenge-count-wrap" class="hidden">Objectif<input id="challenge-count" type="number" min="1" max="999" value="5" /></label><label>Description<textarea id="challenge-description" rows="3" maxlength="240"></textarea></label><label>Date de fin<input id="challenge-end" type="date" /></label><button class="primary" type="submit">Créer le défi</button></form></dialog>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
