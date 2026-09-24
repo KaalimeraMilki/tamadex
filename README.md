@@ -1,25 +1,29 @@
-# TamaDex V3
+# TamaDex V3.1
 
-PWA Tamagotchi Uni & Paradise avec Supabase.
-
-## Nouveautés V3
-
-- Assistant d'évolution et élevages actifs
-- Compteurs illustrés : repas, repas spécial, erreur de soin, jeux, promenades, etc.
-- Traductions françaises des repas Paradise avec nom anglais conservé en référence
-- Validation d'un objectif => ajout automatique à la collection
-- Résolution des illustrations par lots, préchargement en arrière-plan et cache navigateur
-- Images affichées en entier (`contain`) avec zoom/position réglables
-- Back-office administrateur sécurisé par RLS
-- Édition des textes FR, conditions, URL d'image et cadrage
-- Édition des traductions directement depuis l'admin
+V3.1 corrige le point principal de la V3 : une action mesurable n'est plus présentée comme si elle constituait toute la condition d'évolution.
 
 ## Installation
 
-1. Dans Supabase > SQL Editor, exécuter `tamadex-v3-migration.sql`.
-2. Vérifier le résultat : 1 admin, 62 traductions de repas et 19 traductions d'actions.
-3. Envoyer les fichiers web à la racine du dépôt GitHub Pages (ne pas envoyer le fichier SQL sur le site si vous ne le souhaitez pas).
-4. Commit puis attendre le redéploiement GitHub Pages.
-5. Faire Ctrl+F5 une fois.
+1. Le projet doit déjà avoir reçu la migration V3.
+2. Dans Supabase > SQL Editor, exécuter `tamadex-v3.1-migration.sql`.
+3. Vérifier le résultat final : `regles_structurees = 3`, `regles_verifiees = 3`, `personnages = 206` sur le catalogue actuel.
+4. Remplacer les fichiers du site GitHub Pages par ceux de ce dossier.
+5. Attendre le déploiement puis recharger complètement la PWA.
 
-Le script de migration considère le premier compte créé dans ce projet Supabase comme administrateur initial.
+## Nouveautés
+
+- Prérequis séparés des actions à compter.
+- Routes alternatives ET / OU.
+- Vérification d'éligibilité au démarrage et sur les élevages V3 existants.
+- États : prérequis à vérifier, élevage en cours, conditions suivies remplies, route non accessible.
+- Actions importantes mises en avant ; actions génériques repliées.
+- Barres de progression sur les seuils (ex. 0/3 → 3/3).
+- Bloc « Où j'en suis ? ».
+- Bouton explicite « J'ai obtenu … ».
+- Confirmation avant l'arrêt d'un élevage.
+- Règles structurées éditables dans l'administration avec source + marqueur « vérifiée ».
+- Analyse prudente du texte existant pour les personnages sans règle JSON : le texte complet reste toujours accessible.
+
+## Règles vérifiées incluses
+
+La migration fournit des règles structurées pour Bubbletchi, Hypertchi et Mametchi (Uni). Les autres entrées continuent d'utiliser le moteur d'analyse du catalogue jusqu'à validation manuelle dans l'administration.

@@ -1,7 +1,7 @@
 {
   "name": "TamaDex",
   "short_name": "TamaDex",
-  "description": "Suivi de collection Tamagotchi Uni & Paradise",
+  "description": "Collection Tamagotchi Uni & Paradise avec assistant d’évolution structuré",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
