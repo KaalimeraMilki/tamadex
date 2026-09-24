@@ -1,29 +1,24 @@
-# TamaDex V3.1
+# TamaDex V3.2
 
-V3.1 corrige le point principal de la V3 : une action mesurable n'est plus présentée comme si elle constituait toute la condition d'évolution.
-
-## Installation
-
-1. Le projet doit déjà avoir reçu la migration V3.
-2. Dans Supabase > SQL Editor, exécuter `tamadex-v3.1-migration.sql`.
-3. Vérifier le résultat final : `regles_structurees = 3`, `regles_verifiees = 3`, `personnages = 206` sur le catalogue actuel.
-4. Remplacer les fichiers du site GitHub Pages par ceux de ce dossier.
-5. Attendre le déploiement puis recharger complètement la PWA.
+V3.2 ajoute le **suivi d'un élevage dès l'œuf**, sans obliger à choisir l'adulte à l'avance.
 
 ## Nouveautés
 
-- Prérequis séparés des actions à compter.
-- Routes alternatives ET / OU.
-- Vérification d'éligibilité au démarrage et sur les élevages V3 existants.
-- États : prérequis à vérifier, élevage en cours, conditions suivies remplies, route non accessible.
-- Actions importantes mises en avant ; actions génériques repliées.
-- Barres de progression sur les seuils (ex. 0/3 → 3/3).
-- Bloc « Où j'en suis ? ».
-- Bouton explicite « J'ai obtenu … ».
-- Confirmation avant l'arrêt d'un élevage.
-- Règles structurées éditables dans l'administration avec source + marqueur « vérifiée ».
-- Analyse prudente du texte existant pour les personnages sans règle JSON : le texte complet reste toujours accessible.
+- Deux démarrages : **🥚 mode découverte** ou **🎯 objectif précis**.
+- Un élevage peut ne pas avoir de `target_tamagotchi_id`.
+- Contexte de départ : appareil, génération, origine de l'œuf et sexe si connus.
+- Bouton **✨ Mon Tama a évolué** avec stade et nom du nouveau Tama.
+- Chronologie mêlant évolutions et actions enregistrées.
+- Liste des routes **vérifiées encore compatibles** et séparation explicite des guides non vérifiés.
+- Possibilité de choisir un adulte objectif plus tard et de basculer vers le guide détaillé V3.1.
+- Les élevages V3.1 existants restent en mode objectif.
 
-## Règles vérifiées incluses
+## Installation
 
-La migration fournit des règles structurées pour Bubbletchi, Hypertchi et Mametchi (Uni). Les autres entrées continuent d'utiliser le moteur d'analyse du catalogue jusqu'à validation manuelle dans l'administration.
+1. Exécuter `tamadex-v3.2-migration.sql` dans Supabase après V3.1.
+2. Remplacer les fichiers du frontend dans GitHub Pages.
+3. Attendre le déploiement puis recharger complètement la PWA.
+
+## Sécurité de l'assistant
+
+TamaDex n'élimine automatiquement un adulte que si sa règle structurée est marquée `rules_verified=true`. Les autres personnages restent « à confirmer » afin d'éviter les faux diagnostics d'évolution.
