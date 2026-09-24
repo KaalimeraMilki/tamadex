@@ -1,17 +1,18 @@
-# TamaDex V3.3.2
+# TamaDex V4
 
-Mise à jour UX de l'assistant d'évolution.
-
-## Nouveautés
-- cartes d'évolutions plus grandes, images entières et lisibles ;
-- conditions affichées directement sous chaque évolution candidate ;
-- suivi du bonheur courant par plage 0–5 / 6–14 / 15–20 ;
-- seuls les compteurs réellement utiles aux branches actuelles sont mis en avant ;
-- les autres événements restent disponibles dans « Noter un autre événement » ;
-- progression des actions (DIY, snacks, scores parfaits, promenades, etc.) réutilisée dans les conditions ;
-- cache PWA versionné V3.3.2.
+V4 finalise l'assistant d'évolution et enrichit le suivi Uni Ado → Adulte.
 
 ## Installation
-1. Exécuter `tamadex-v3.3.2-migration.sql` dans Supabase après V3.3.1.
+1. Exécuter `tamadex-v4-migration.sql` dans Supabase après les migrations précédentes.
 2. Remplacer les fichiers du dépôt GitHub Pages par ceux de ce dossier.
-3. Faire un rechargement forcé (Ctrl+F5).
+3. Faire un rechargement forcé.
+
+## V4
+- Cartes d'évolution lisibles et responsives.
+- Conditions alternatives affichées avec `OU`.
+- Mise en évidence d'une condition actuellement remplie.
+- `Fabrication DIY` remplace `Accessoire DIY`.
+- Zone `🎯 Ce qui influence sa prochaine évolution`.
+- Actions et compteurs calculés uniquement depuis le début du stade courant.
+- Suivi des erreurs de soin, promenades, Delivery, Arcade, Travel, Fashion et DIY selon les branches.
+- Conditions Uni Ado → Adulte enrichies, y compris les adultes spéciaux déjà reliés dans V3.3.1.
