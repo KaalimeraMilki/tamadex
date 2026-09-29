@@ -25,7 +25,7 @@
   </main>
 
   <div id="app-view" class="app hidden">
-    <header class="topbar"><div><p class="eyebrow">TAMADEX · V5</p><h1 id="page-title">Accueil</h1></div><button id="avatar-button" class="avatar" type="button">🥚</button></header>
+    <header class="topbar"><div><p class="eyebrow">TAMADEX · V5.1</p><h1 id="page-title">Accueil</h1></div><button id="avatar-button" class="avatar" type="button">🥚</button></header>
     <main class="content">
       <section id="page-home" class="page active">
         <div class="hero-card"><div><p class="eyebrow">BON RETOUR ✨</p><h2 id="welcome-name">Collectionneuse</h2><p class="muted-on-dark">Quel Tama élèves-tu aujourd'hui ?</p></div><div class="hero-egg">🥚</div></div>
@@ -55,7 +55,7 @@
       <section id="page-challenges" class="page"><button id="new-challenge-btn" class="primary full">＋ Nouveau défi</button><div class="section-heading"><h2>Mes défis</h2></div><div id="challenges-list" class="card-list empty-state">Aucun défi pour le moment.</div></section>
 
       <section id="page-profile" class="page">
-        <article class="panel profile-panel"><div class="big-avatar">🥚</div><h2 id="profile-display">Mon profil</h2><p id="profile-email" class="muted"></p><form id="profile-form" class="form-stack"><label>Pseudo unique<input id="profile-username" type="text" maxlength="30" pattern="[A-Za-z0-9_.-]+" /></label><label>Nom affiché<input id="profile-name" type="text" maxlength="40" /></label><label>Bio<textarea id="profile-bio" maxlength="160" rows="3"></textarea></label><label class="toggle-row"><input id="profile-public" type="checkbox" /> <span>Autoriser plus tard le partage public de ma collection</span></label><button class="primary" type="submit">Enregistrer</button></form></article>
+        <article class="panel profile-panel"><div class="big-avatar">🥚</div><h2 id="profile-display">Mon profil</h2><p id="profile-email" class="muted"></p><form id="profile-form" class="form-stack"><label>Pseudo unique<input id="profile-username" type="text" maxlength="30" pattern="[A-Za-z0-9_.-]+" /></label><label>Nom affiché<input id="profile-name" type="text" maxlength="40" /></label><label>Bio<textarea id="profile-bio" maxlength="160" rows="3"></textarea></label><label class="toggle-row"><input id="profile-public" type="checkbox" /> <span>Autoriser plus tard le partage public de ma collection</span></label><label class="toggle-row beginner-toggle"><input id="profile-beginner" type="checkbox" /> <span><b>🌱 Je débute avec Tamagotchi</b><small>Afficher davantage d’explications dans l’assistant d’élevage.</small></span></label><button class="primary" type="submit">Enregistrer</button></form></article>
         <button id="admin-entry" data-nav="admin" class="admin-entry hidden">⚙️ Administration TamaDex</button><button id="logout-btn" class="danger-outline full">Se déconnecter</button>
       </section>
 
@@ -66,6 +66,7 @@
       </section>
     </main>
 
+    <dialog id="help-dialog" class="modal help-modal"><div class="modal-inner"><button class="dialog-close" type="button" data-close-dialog="help-dialog">×</button><div id="help-dialog-content"></div></div></dialog>
     <nav class="bottom-nav" aria-label="Navigation principale"><button class="nav-item active" data-nav="home"><span>🏠</span><small>Accueil</small></button><button class="nav-item" data-nav="dex"><span>🥚</span><small>TamaDex</small></button><button class="nav-item" data-nav="raising"><span>🌱</span><small>Élevage</small></button><button class="nav-item" data-nav="friends"><span>👭</span><small>Amies</small></button><button class="nav-item" data-nav="challenges"><span>🏆</span><small>Défis</small></button><button class="nav-item" data-nav="profile"><span>👤</span><small>Profil</small></button></nav>
   </div>
 
