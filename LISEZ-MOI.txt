@@ -1,0 +1,16 @@
+TamaDex V6 — correctif images (28 octobre 2026)
+
+À déposer à la RACINE du dépôt GitHub KaalimeraMilki/tamadex, branche main :
+- index.html (remplacer)
+- sw.js (remplacer)
+- image-fix.js (nouveau)
+
+Ne supprimez PAS les autres fichiers (app.js, catalog.json, styles.css, etc.).
+
+Fonctionnement : le correctif recherche les illustrations des cartes du catalogue
+dans l'API Tamagotchi Wiki (Fandom), enregistre les URLs trouvées dans le navigateur
+et affiche les images lorsque le wiki en fournit une.
+Les personnages non trouvés conservent leur placeholder.
+Le cache PWA passe en version 2 pour charger le nouveau script.
+Les images distantes ne sont pas garanties disponibles hors ligne.
+Aucune donnée utilisateur n'est modifiée. Aucun accès Supabase.
