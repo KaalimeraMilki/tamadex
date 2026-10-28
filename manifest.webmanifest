@@ -1,14 +1,1 @@
-{
-  "name": "TamaDex",
-  "short_name": "TamaDex",
-  "description": "Collection Tamagotchi Uni & Paradise avec assistant d’évolution depuis l’œuf",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#f8f7fb",
-  "theme_color": "#8b5cf6",
-  "icons": [
-    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png"},
-    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png"}
-  ]
-}
+{"name":"TamaDex Local","short_name":"TamaDex","start_url":"./","display":"standalone","background_color":"#f9f7ff","theme_color":"#8b5cf6"}

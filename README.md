@@ -1,11 +1,15 @@
-# TamaDex V5.2 — Finitions mobile
+# TamaDex V6 — stockage local
 
-Cette version ne nécessite aucune migration Supabase.
+Version autonome sans Supabase. Toutes les données utilisateur sont conservées dans IndexedDB sur chaque appareil. Le catalogue est fourni dans `catalog.json` et peut être consulté hors ligne après installation.
 
-Améliorations :
-- boutons ? intégrés directement aux cartes d’action ;
-- cartes d’action en une colonne sur petit écran ;
-- fenêtre d’aide limitée à la hauteur de l’écran avec défilement interne ;
-- en-tête et bouton de fermeture conservés visibles pendant le défilement ;
-- meilleure lisibilité des titres, textes et URLs sur iPhone ;
-- cache PWA incrémenté vers V5.2.
+## Installation GitHub Pages
+Déployer tous les fichiers à la racine de la branche `main`. Aucun compte Supabase, aucune migration SQL.
+
+## Limitations
+- Les anciens comptes et données Supabase supprimés ne sont pas récupérables automatiquement.
+- La collection est différente sur chaque appareil ; export/import JSON depuis Profil pour transférer.
+- Les fonctions Amis et Défis réseau sont retirées.
+- Catalogue initial inclus : 206 adultes + une sélection de stades intermédiaires. Certaines branches et conditions détaillées de V5.2 ne sont pas encore réintégrées ; les conseils d'évolution sont indicatifs. Ne pas confondre avec une migration fonctionnelle intégrale de V5.2.
+- Les images externes de Tamagotchi Wiki peuvent nécessiter une connexion ; le fonctionnement de la base locale n'en dépend pas.
+- Le suivi des actions est par stade, les générations et accouplements sont conservés.
+- Conserver régulièrement une sauvegarde JSON, surtout avant suppression du navigateur ou changement d'appareil.
